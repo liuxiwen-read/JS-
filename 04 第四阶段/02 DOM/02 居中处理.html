@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>居中处理</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        html,
+        body {
+            height: 100%;
+            border: 4px solid red;
+        }
+
+        .box {
+            box-sizing: border-box;
+            padding: 15px;
+            width: 300px;
+            height: 300px;
+            border: 10px solid lightblue;
+            background: lightcyan;
+
+            font-size: 18px;
+            line-height: 30px;
+        }
+
+        /* 居中: 定位   缺点: 要知道宽高的长度 */
+        /* .box {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-left: -150px;
+            margin-top: -150px;
+        } */
+
+
+
+        /* .box {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        } */
+
+
+
+        /* 这有兼容问题 */
+        /* .box {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            margin: auto;
+        } */
+
+
+
+        /* 基于flex实现居中 */
+        /* body {
+            display: flex;
+            /!* 设置元素在flex容器主轴和交叉轴方向上的对齐方式：center居中对齐 *!/
+            justify-content: center;
+            align-items: center;
+        } */
+    </style>
+</head>
+<body>
+    <div id="box" class="box">
+        夫君子之行，静以修身，俭以养德，非淡泊无以明志，非宁静无以致远。夫学须静也，才须学也，非学无以广才，非志无以成学。淫漫则不能励精，险躁则不能冶性，年与时驰，意与日去，遂成枯落，多不接世，悲守穷庐，将复何及~~
+    </div>
+
+    <script>
+        // JS实现居中：（一屏幕的宽度-盒子的宽度）/2 === left
+        let winW = document.documentElement.clientWidth,
+            winH = document.documentElement.clientHeight,
+            box = document.getElementById("box");
+        box.style.position = "absolute";
+        box.style.left = (winW - 300) / 2 + "px";
+        box.style.top = (winH - 300) / 2 + "px";
+    </script>
+</body>
+</html>

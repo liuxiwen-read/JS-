@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>点击弹出索引</title>
+</head>
+
+<body>
+    <button value="按钮1">按钮1</button>
+    <button value="按钮2">按钮2</button>
+    <button value="按钮3">按钮3</button>
+    <button value="按钮4">按钮4</button>
+    <button value="按钮5">按钮5</button>
+
+    <script>
+        // var btnList = document.getElementsByTagName('button');
+        // for (var i = 0; i < btnList.length; i++) {
+        //     console.log(btnList[i].myIndex);
+        //     btnList[i].onclick = function () {
+        //         alert(i);
+        //     }
+        // }
+
+
+        // ./image/选项卡运行原理图.png
+        var btnList = document.getElementsByTagName('button');
+        for (var i = 0; i < btnList.length; i++) {
+            
+            // 每个button都加了一个属性myIndex，都存储是自己的索引
+            btnList[i].myIndex = i;
+            // console.log(btnList[i].myIndex);
+            btnList[i].onclick = function () {
+                alert(this.myIndex);
+            }
+        }
+    </script>
+</body>
+
+</html>

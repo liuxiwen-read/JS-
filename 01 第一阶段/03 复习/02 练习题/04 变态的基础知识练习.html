@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>扩展基础</title>
+</head>
+<body>
+    <script>
+        !(!'Number(undefined)');    // 'Number(undefined)'是字符串
+
+        isNaN(parseInt(new Date())) + Number([1]) + typeof undefined;
+
+        Boolean(Number("")) + !isNaN(Number(null)) + Boolean('parseInt([])') + typeof !(null);
+
+        parseFloat('1.6px') + parseInt('1.2px') + typeof parseInt(null);
+
+        isNaN(Number(!!Number(parseInt("0.8"))));
+
+        console.log(1 + '2' + '2');
+
+        !typeof parseFloat("0");
+
+        Number("");
+
+        typeof "parseInt(null)" + 12 + !!Number(NaN);
+
+        !typeof (isNaN("")) + parseInt(NaN);
+
+        typeof !parseInt(null) + !isNaN(null);
+    </script>
+</body>
+</html>

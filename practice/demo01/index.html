@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .text {
+            width: 200px;
+            height: 200px;
+            background-color: aqua;
+
+            font-size: 30px;
+            line-height: 200px;
+            text-align: center;
+        }
+        .fromRadio {
+            width: 200px;
+            height: 200px;
+            background: lightblue;
+
+            line-height: 200px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="text">liuxiwen</div>
+    <script>
+        var test = document.getElementsByClassName("text")[0];
+        // 给test绑定点击事件
+        test.onclick = function () {
+            test.innerHTML = "刘喜文"
+        }
+    </script>
+
+    <div class="fromRadio">
+        <input type="radio" name="sex" value="男" checked>男
+        <input type="radio" name="sex" value="女">女
+        <input type="radio" name="sex" value="未知">未知
+
+        <button id="submit">提交</button>
+    </div>
+    <script>
+        var radioList = document.getElementsByName('sex');
+        var submit = document.getElementById("submit");
+        submit.onclick = function () {
+            var result = null;
+            for (var i = 0; i < radioList.length; i++) {
+                var item = radioList[i];
+                if (item.checked) {
+                    result = item.value;
+                    break;
+                }
+            }
+            alert(result)
+        }
+
+        var fromRadio = document.getElementsByClassName("fromRadio")[0];
+        function children(context) {
+            let res = [],
+                nodeList = context.childNodes;
+            for (var i=0; i < nodeList.length; i++) {
+                var item = nodeList[i];
+                item.nodeType === 1 ? res.push(item) : null
+            }
+            return res;
+        }
+
+        var radio2 = document.getElementsByName('sex')[1];
+        function pre(context) {
+            var pre = context.previousSibling;
+            // console.log(pre.nodeType)
+            while (pre.nodeType !== 1) {
+                pre = pre.previousSibling;
+            }
+            return pre;
+        }
+    </script>
+
+    <div id="button">
+        <button>按钮1</button>
+        <button>按钮2</button>
+        <button>按钮3</button>
+    </div>
+    <script>
+        var btnList = document.querySelectorAll("#button button")
+        for (var i = 0; i < btnList.length; i++) {
+            btnList[i].setAttribute("data-index",i);
+            btnList[i].onclick = function () {
+                alert(this.getAttribute("data-index"))
+            }
+        }
+        for (var i = 0; i < btnList.length; i++) {
+            btnList[i].myIndex = i
+            btnList[i].onclick = function () {
+                alert(this.myIndex)
+            }
+        }
+    </script>
+
+    
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>offset系列</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .outer {
+            box-sizing: border-box;
+            margin: 20px auto;
+            width: 500px;
+            height: 500px;
+            background: lightcoral;
+            border: 10px solid orangered;
+
+            position: relative;
+        }
+
+        .box {
+            /* position: absolute;
+            top: 0;
+            left: 40px; */
+
+            margin: 20px auto;
+            padding: 15px;
+            width: 300px;
+            height: 300px;
+            border: 10px solid lightblue;
+            background: lightcyan;
+
+            font-size: 18px;
+            line-height: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="outer" id="outer">
+        <div id="box" class="box">
+            夫君子之行，静以修身，俭以养德，非淡泊无以明志，非宁静无以致远。夫学须静也，才须学也，非学无以广才，非志无以成学。淫漫则不能励精，险躁则不能冶性，年与时驰，意与日去，遂成枯落，多不接世，悲守穷庐，将复何及~~
+        </div>
+    </div>
+    
+    <script>
+        // var box = document.getElementById("box");
+        /*
+         * offset: 获取当前元素距离body的左/上偏移（不论其父参照物的是谁）
+         *    @params
+         *        curEle : current element 当前要操作的元素
+         *    @return
+         *        [object]包含上/左偏移的信息 => {top:xxx,let:xxx}
+         */ 
+        function offset(curEle) {
+            let par = curEle.offsetParent,
+                l = curEle.offsetLeft,
+                t = curEle.offsetTop;
+            console.log(par);
+            // console.log(par.tagName);
+            // console.log(par)
+            // console.log(l)
+            // 存在父参照物，而且还没有找到body
+            while (par && par.tagName !== "BODY") {
+                // 在原有偏移的基础上累加：父参照物的边框、父参照物的偏移
+                l += par.clientLeft;
+                t += par.clientTop;
+                l += par.offsetLeft;
+                t += par.offsetTop;
+                // 继续获取上级参照物
+                par = par.offsetParent;
+            }
+            return {
+                top: t,
+                left: l
+            };
+        }
+
+        // 直接在控制台输出offset(box)或offset(outer)
+
+        // 在outer样式里面直接阻断了元素向body获取偏移值，所以可以使用这个方法获取到元素到body的偏移值
+    </script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>隔行变色</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        #box {
+            margin: 10px auto;
+            width: 500px;
+        }
+
+        #box li {
+            line-height: 45px;
+            border-bottom: 1px dashed #999;
+        }
+    </style>
+</head>
+
+<body>
+    <ul id="box">
+        <li>我是第1个li哈哈哈</li>
+        <li>我是第2个li哈哈哈</li>
+        <li>我是第3个li哈哈哈</li>
+        <li>我是第4个li哈哈哈</li>
+        <li>我是第5个li哈哈哈</li>
+    </ul>
+
+    <!-- import JS -->
+    <script>
+        // 图形演示 ./image/深刻理解元素和元素对象集合.png
+        var box = document.getElementById('box');
+        // boxList 是一个集合，也是一个对象
+        var boxList = box.getElementsByTagName('li');
+        // console.log(boxList);
+
+        /**
+         *  自定义属性编程思想:
+         *      前期把一些值存储到元素的自定义属性上，后期需要用到的时候，直接从属性上获取到这些值即可 
+         */ 
+        for (var i = 0; i < boxList.length; i++) {
+            // boxList[i]: 当前循环要操作的这个li
+            // 判断偶数行是pink，奇数行是white  
+            // boxList[i].style.backgroundColor = i % 2 === 0 ? 'white' : 'pink';
+            var bg = i % 2 === 0 ? 'white' : 'pink';
+            boxList[i].style.backgroundColor = bg;
+            // 设置自定义属性myOriginBg用来存储每一个li的背景
+            boxList[i].myOriginBg = bg;
+            // console.log(boxList[i].myOriginBg);
+
+            boxList[i].onmouseover = function() {
+                // this 当前操作的这个li
+                this.style.backgroundColor = 'lightblue'
+            }
+
+            boxList[i].onmouseout = function() {
+                // 获取原先的样式
+                this.style.backgroundColor = this.myOriginBg;
+            }
+        }
+
+        /**
+         * 什么时候用自定义
+         *      开始的时候知道这些信息，后面需要用到，我们事先存起来（存元素的身上），后面用的时候直接从元素身上获取即可
+         */ 
+    </script>
+</body>
+
+</html>

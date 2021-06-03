@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>基于CSS实现隔行变色</title>
+    <!-- import CSS -->
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        ul {
+            list-style: none;
+        }
+
+        #newsBox {
+            box-sizing: border-box;
+            margin: 0 auto;
+            padding: 20px;
+            width: 300px;
+            border: 2px solid lightblue;
+        }
+        #newsBox li {
+            line-height: 55px;
+            border-bottom: 1px dashed lightcoral;
+        }
+        #newsBox li:nth-last-child(1) {
+            /* 获取 li 中的倒数第一个 */
+            border-bottom: none;
+        }
+
+        /* 基于 CSS 实现 */
+        /* 所有的偶数行变成灰色，even 就是所有的偶数行 */
+        #newsBox li:nth-child(even) {
+            background-color: lightgray;
+        }
+
+        #newsBox li:hover {
+            background-color: lightgreen;
+        }
+    </style>
+</head>
+<body>
+    <!-- ul#newsBox>li*5{我是第$个li} -->
+    <ul id="newsBox">
+        <li>我是第1个li</li>
+        <li>我是第2个li</li>
+        <li>我是第3个li</li>
+        <li>我是第4个li</li>
+        <li>我是第5个li</li>
+    </ul>
+</body>
+</html>
+
+

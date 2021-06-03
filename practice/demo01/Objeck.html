@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>liuxiwen</div>
+    <div id="box">
+        <button>按钮1</button>
+        <button>按钮2</button>
+        <button>按钮3</button>
+        <button>按钮4</button>
+    </div>
+    <div>landan</div>
+    <script>
+        var box = document.getElementById("box");
+        function pre(context) {
+            var pre = context.previousSibling;
+            // console.log(pre);
+            while (pre.nodeType !== 1) {
+                pre = pre.previousSibling;
+                continue;
+            }
+            return pre;
+        }
+        function next(context) {
+            var next = context.nextSibling;
+            while (next.nodeType !== 1) {
+                next = next.nextSibling;
+                continue;
+            }
+            return next;
+        }
+    </script>
+</body>
+
+</html>

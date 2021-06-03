@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>浏览器中常用的输出方式</title>
+</head>
+<body>
+    <script>
+        let a = 10;
+        let b = [{
+            id : 1,
+            name : '张三'
+        },{
+            id : 2,
+            name : '李四'
+        }]
+        /*
+            [12,13]                 一位数组
+            [12,{name:'xxx'}]       二维数组
+            [12,[{xxx:'xxx'}]]      三维数组
+        */ 
+        /*
+            {name:'xxx'}            一维对象
+            {name:[12,23]}          二维对象
+            {                       五维对象
+                name: {
+                    xxx: {
+                        xxx: {
+                            xxx: {
+
+                            }
+                        }
+                    }
+                }
+            }
+            {                       二维对象（不确定）
+                fn: function() {
+
+                }
+            }
+        */ 
+
+        // 1. console.log/dir/table... 在控制台输出
+        // .dir: 输出一个对象的详情键值对信息
+        // .table: 把一个多维JSON数组在控制台按照表格的方式呈现出来
+        // 我知道一看到什么点什么，我就想到对象.属性名；那么点后面一定是属性名，点前面的是对象
+        // console.log(a);
+        // console.dir(document.body);
+        // console.table(b);
+        /*
+            typeof console
+            "object"
+            console.log(console)
+            console {debug: ƒ, error: ƒ, info: ƒ, log: ƒ, warn: ƒ, …}
+            undefined
+        */ 
+
+
+        // 2. 浏览器窗口弹窗 alert/confirm/prompt
+        // console.log([12,23,34])
+        // alert([12,23,34]);
+
+        // console.log({name:12});
+        // alert({name:12});
+
+        // 三种方式输出的结果都必先经过toString转换为字符串
+        // alert(1);       // '1'
+        // 三种方式会阻断JS代码的执行，只有当窗口关掉，JS才会继续运行
+        // for(let i=0; i<5; i++) {
+        //     alert(i);
+        //     console.log('哈哈');
+        // }
+        // 确定和取消: 选择型弹框
+        // confirm('确定要干啥吗？');
+        // 在confirm的基础上多了一个输入框
+        // prompt('确定要干啥吗？写出原因！');
+
+
+
+        // 3.document.write 在页面中写入信息
+        // 和alert一样，输出的结果都是字符串
+        document.write('AAABBBFFF');
+    </script>
+</body>
+</html>

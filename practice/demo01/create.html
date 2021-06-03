@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>createElement</title>
+    <style>
+        /* 样式类 */
+        .aqua {
+            width: 200px;
+            height: 200px;
+            background-color: aqua;
+
+            line-height: 200px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="content">
+        <!-- 文本 -->
+        努力不是无用的
+    </div>
+    <ul id="box">
+        <li>第一轮</li>
+        <li>第二轮</li>
+        <li>第三轮</li>
+        <li>第四轮</li>
+    </ul>
+    <div class="name">
+        <input type="radio" name="sex" value="男" checked>男
+        <input type="radio" name="sex" value="女">女
+        <input type="radio" name="sex" value="未知">未知
+
+        <button id="submit">提交</button>
+    </div>
+    <div>trident.gecko.webkit</div>
+    <script>
+        var box = document.getElementById("box");
+        var boxList = box.children;
+
+        let radioList = document.getElementsByName("sex");
+        let submit = document.querySelector("#submit");
+        submit.onclick = function () {
+            let res = null;
+            for (var i = 0; i < radioList.length; i++) {
+                let item = radioList[i];
+                // console.log(item.checked)
+                if (item.checked) {
+                    res = item.value;
+                    break;
+                }
+                console.log(item.checked)
+            }
+            alert(res)
+        }
+
+
+        let name = document.getElementsByClassName('name')[0];
+        function pre(context) {
+            let pre = context.previousSibling;
+            console.log(pre.nodeType);
+            while (pre.nodeType !== 1) {
+                pre = pre.previousSibling;
+            }
+            return pre;
+        }
+
+        function children(context) {
+            let res = [],
+                ChildList = context.childNodes;
+            for (var i = 0; i < ChildList.length; i++) {
+                var item = ChildList[i];
+                // console.log(item)
+                item.nodeType === 1 ? res.push(item) : null
+            }
+            return res;
+        }
+    </script>
+</body>
+
+</html>

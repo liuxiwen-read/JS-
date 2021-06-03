@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JQuery</title>
+    <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+</head>
+<body>
+    <ul class="list">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+    <div id="box" data-type="a">哈哈</div>
+    <!-- 
+        let str = `<div id="box" class="box">
+            liuxiwenreadstyle
+        </div>`;
+        $('body').append(str)
+        $('body').html(str)
+        $('body').text(str)
+        $('body').html()
+        $('body').text()
+        $('.list>li:nth-child(3)')  => 获取第三个li
+        $('.list>li:eq(3)')         => 获取第三个li
+
+        把box放到li2的前面
+        $("#box").insertBefore($(".list>li:eq(2)"))
+        把写的元素增加到li3的前面
+        $(`<div id="box" class="box">哈哈</div>`).insertBefore($(".list>li:eq(3)"))
+
+        克隆
+        let $list = $('.list').clone();
+        $list.appendTo('body')
+
+        自定义属性
+        $("#box").attr("data-type")
+        
+     -->
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>基于CSS实现鼠标滑过显示详情</title>
+    <!-- import css -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            margin-top: 200px;
+        }
+        
+        .box {
+            /* CSS3新盒子模型属性：控制width/height是盒子最终的宽高 */
+            box-sizing: border-box;
+            margin: 0 auto;
+            width: 200px;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+            border: 1px solid lightcoral;
+            position: relative;
+        }
+
+        .box .detail {
+            /* 隐藏 detail 相关内容*/
+            display: none;
+            position: absolute;
+            right: -1px;
+            /* 这38px会让有两个边框显示一个边框，如果写40px两个边框会叠加在一起 */
+            top: 38px;
+            /* detail 也是 box 的子元素，box父元素层级调高了，子元素的层级也跟着调高 */
+            z-index: -1;
+            box-sizing: border-box;
+            width: 500px;
+            height: 100px;
+            text-align: center;
+            border: 1px solid lightcoral;
+        }
+
+        /* 鼠标滑过box改变box的样式 */
+        .box:hover {
+            border-bottom-color: #fff;  
+        }
+
+        /* 鼠标滑过box不是改变box样式，而是改变box下的detail样式 */
+        .box:hover .detail {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <!-- 基于CSS实现，我们需要让详情区域是按钮的子元素 -->
+    <div class="box">
+        <span>购物车</span>
+        <div class="detail">
+            购物车的相关信息
+        </div>
+    </div>
+    <h1>想把CSS样式写好：不是先写某个标签的样式，而是写公共样式</h1>
+    <h2>在25课时</h2>
+    <h2>一天写三个页面：大神</h2>
+    <h2>思考题：如果是点击实现显示，不需要基于JS也可以，可以基于target实现手风琴效果，可以了解一下</h2>
+</body>
+</html>

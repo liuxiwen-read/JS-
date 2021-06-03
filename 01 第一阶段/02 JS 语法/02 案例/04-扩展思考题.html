@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>扩展思考题</title>
+    <style>
+        #box {
+            box-sizing: border-box;
+            width: 200px;
+            height: 200px;
+            border: 3px solid lightblue;
+        }
+
+        .AA {
+            background: lightcoral;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+
+    <script>
+        let box = document.getElementById('box');
+        /*
+            ./image/思考题.jpg
+            box.style.backgroundColor = 'red'
+            "red"
+            let aa = box.style;
+            undefined
+            aa.backgroundColor = 'green';
+            "green"
+            let bb = box.style.backgroundColor;     这样不可以
+            undefined
+            bb = 'orange'
+            "orange"
+
+            // 操作样式
+            box.className = 'AA'
+            "AA"
+            // 获取样式
+            box.className
+            "AA"
+
+            // 设置内容
+            box.innerHTML = '珠峰'
+            "珠峰"
+            // 获取内容
+            box.innerHTML
+            "珠峰"
+        */ 
+
+        
+        // => 通过方法获取的元素是对象数据类型的值
+        // console.log(typeof box);    // "object"
+
+        // 基于.dir可以看到一个对象的详细信息
+        /**
+         *  id: 操作元素的 ID 值 
+         *  className: 操作元素的的 class 样式类的值
+         *  innerHTML: 操作的元素内容（可以识别标签）
+         *  innerText: 和innerHTML的区别是不能识别标签
+         *  style: 操作元素的行内样式
+         *  tagName: 获取元素的标签名（一般大写）
+         *  ...
+         *  style: 操作元素的行内样式  属性值是一个新的对象（CSSStyleDeclaration）
+         *  ./image/思考题.jpg          图片演示        第29课时
+         */ 
+        console.dir(box);
+
+        // 事件绑定
+        box['onclick'] = function() {
+            console.log('哈哈');
+        }
+    </script>
+
+    <h3>学习方法：我们页面中有很多标签，每个标签和每个标签它总有一些区别，可以尝试一周两个或三个标签，通过id获取元素对象，把里面的属性自己列出来，可以不要查完，以后有时间可以慢慢学习里面的属性</h3>
+</body>
+</html>

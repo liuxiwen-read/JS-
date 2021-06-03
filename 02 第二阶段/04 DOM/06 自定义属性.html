@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>自定义属性</title>
+</head>
+
+<body>
+    <button>按钮1</button>
+    <button>按钮2</button>
+    <button>按钮3</button>
+
+    <script>
+        var btnList = document.querySelectorAll('button');
+        for (var i = 0; i < btnList.length; i++) {
+            // 设置自定义属性：元素对象.属性名=属性值 （原理是向元素对象对应的堆内存中添加了一个属性）
+            btnList[i].myIndex = i;
+            btnList[i].onclick = function () {
+                // alert(i);    只能输出：3
+                // 获取自定义属性：元素对象.属性名 （原理是从堆内存中获取到对应的属性值）
+                alert(this.myIndex);
+            }
+        }
+    </script>
+
+</body>
+
+</html>

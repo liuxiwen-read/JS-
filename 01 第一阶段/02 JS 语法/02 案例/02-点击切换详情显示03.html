@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>基于CSS实现鼠标滑过显示详情</title>
+    <!-- import css -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            margin-top: 200px;
+        }
+        
+        .box {
+            box-sizing: border-box;
+            margin: 0 auto;
+            width: 200px;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+            border: 1px solid lightcoral;
+            position: relative;
+            /*  */
+            cursor: pointer;
+        }
+
+        .box .detail {
+            /* 隐藏 detail 相关内容*/
+            display: none;
+            position: absolute;
+            right: -1px;
+            /* 这38px会让有两个边框显示一个边框，如果写40px两个边框会叠加在一起 */
+            top: 38px;
+            /* detail 也是 box 的子元素，box父元素层级调高了，子元素的层级也跟着调高 */
+            z-index: -1;
+            box-sizing: border-box;
+            width: 500px;
+            height: 100px;
+            text-align: center;
+            border: 1px solid lightcoral;
+        }
+    </style>
+</head>
+<body>
+    <div class="box" id="box">
+        <span>购物车</span>
+        <div class="detail" id="detail">
+            购物车的相关信息
+        </div>
+    </div>
+    <!-- 
+        传统基于操作 DOM 的方式实现业务需求
+        1. 想操作谁就先获取谁
+        2. 给某元素绑定某事件
+        3. 在事件触发的时候修改元素的样式等
+    -->
+    <!-- import JS -->
+    <script>
+        let box = document.getElementById('box');
+        let detail = document.getElementById('detail');
+
+        box.onclick = function() {
+           let n = detail.style.display;
+           if (n === 'none') {
+                detail.style.display = 'block';
+                box.style.borderBottomColor = '#fff';
+            }else{
+                detail.style.display = 'none';
+                box.style.borderBottomColor = 'lightcoral';
+            }
+        }
+    </script>
+</body>
+</html>

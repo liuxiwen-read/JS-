@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>克隆</title>
+</head>
+<body>
+    <div id="sex">
+        <input type="radio" name="sex" value="男" checked>男
+        <input type="radio" name="sex" value="女">女
+        <input type="radio" name="sex" value="未知">未知
+
+        <button id="submit">提交</button>
+    </div>
+    <script>
+        // 获取元素
+        var radioList = document.querySelectorAll("[name=sex]");
+        // console.dir(radioList);
+        // console.log(radioList.length);
+        var submit = document.getElementById("submit");
+        // 绑定事件
+        submit.onclick = function () {
+            var res = null;
+            for (var i = 0; i < radioList.length; i++) {
+                var item = radioList[i];
+                if (item.checked) {
+                    res = item.value;
+                    // 终止循环，提高代码的性能
+                    break;
+                }
+            }
+            alert(res);
+        }
+
+        var sex = document.querySelector("#sex");
+        // 兼容IE6~8获取子元素的方法
+        function children(context) {
+            var res = [],
+                childNode = context.childNodes;
+            for (var i = 0; i < childNode.length; i++) {
+                var item = childNode[i];
+                item.nodeType === 1 ? res.push(item) : null;
+            }
+            return res;
+        }
+        console.log(children(sex));
+
+        var radio = document.querySelectorAll("[name=sex]")[1];
+        console.log(radio);
+        // 找上一个兄弟
+        function pre(context) {
+            var pre = context.previousSibling;
+            while (pre.nodeType !== 1) {
+                pre = pre.previousSibling;
+            }
+            return pre;
+        }   
+    </script>
+
+    <div class="box">
+        <button>按钮1</button>
+        <button>按钮2</button>
+        <button>按钮3</button>
+    </div>
+    <script>
+        // 点击那个按钮获取那个索引
+        var btnList = document.querySelectorAll(".box button");
+        // for (var i = 0; i < btnList.length; i++) {
+        //     btnList[i].setAttribute("data-index",i);
+        //     btnList[i].onclick = function () {
+        //         alert(this.removeAttribute("data-index"))
+        //     }
+        // }
+
+        for (var i = 0; i < btnList.length; i++) {
+            btnList[i].myIndex = i;
+            btnList[i].onclick = function () {
+                alert(this.myIndex)
+            }
+        }
+    </script>
+</body>
+</html>

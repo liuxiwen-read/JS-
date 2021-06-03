@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>学习内容</title>
+</head>
+
+<body>
+    <!-- <script src="./js/01 构造函数.js"></script> -->
+    <script src="./js/02 构造函数.js"></script>
+    <!-- <script src="./js/03 hasOwnProperty.js"></script> -->
+    <!-- <script src="./js/04 原型链方法中this问题.js"></script> -->
+    <!-- <script src="./js/05 基于内置类的原型扩展方法.js"></script> -->
+
+    <ul id="Tab">
+        <li class="tabList">1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+    <div id="box"></div>
+
+    <script>
+        let tab = document.getElementById("Tab");
+        let tabList = document.getElementsByClassName("tabList")[0];
+
+        // let fnName = (function () {
+        //     function fn () {
+        //         let name = "liuxiwen";
+        //         let age = 20;
+        //         let sex = "男";
+        //         let xinxi = "姓名：" + name + "年龄：" + age + "性别" + sex;
+        //         return xinxi;
+        //     }
+        //     return {
+        //         fn : fn
+        //     }
+        // })();
+
+        // // new方法可以构造类和实例 类：函数数据类型  实例：对象数据类型
+        // function CreatePerson(n, m) {
+        //     this.res = n + m;
+        //     this.say = function () {
+        //         console.log("new方法可以构造类和实例，类：函数数据类型");
+        //     }
+        // }
+        // // 默认会返回一个实例，手动添加一个引用类型的值，就会覆盖默认的默认的值
+        // var person01 = new CreatePerson(10, 20);
+        // // 私有变量和形参赋值与实例无关，this.xxx = xxx才有关
+        // console.log(person01.res);
+        // console.log(person01.say());
+        // // 检测实例person01是否是CteatePerson的实例
+        // console.log(person01 instanceof CreatePerson);
+        // // 检测实例
+    </script>
+</body>
+
+</html>

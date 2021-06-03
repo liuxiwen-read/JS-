@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>时间格式化</title>
+</head>
+<body>
+    <script>
+        let addZero = val => {
+            val = Number(val);
+            return  val < 10 ? "0" + val : val;
+        }
+
+        /**
+         * 基于日期对象处理
+         */ 
+        // function formatTime (time) {
+        //     // 1.把时间字符串变为标准日期对象
+        //     // time = time.replace("-","/").replace("-","/");   // 等价于 
+        //     time = time.replace(/-/g,'/');
+        //     time = new Date(time);
+        //     // 2.基于方法获取年月日等信息
+        //     let year = time.getFullYear(),
+        //         month = addZero(time.getMonth() + 1),
+        //         day = addZero(time.getDate()),
+        //         hours = addZero(time.getHours()),
+        //         minutes = addZero(time.getMinutes()),
+        //         seconds = addZero(time.getSeconds());
+        //     // 3.返回想要的结果
+        //     return year + "年" + month + "月" + day + "日 " + hours + ":" + minutes + ":" + seconds;
+
+        // }
+
+        // let time = "2019-5-30 12:0:0";  // "2019年05月30日 12:00:00"
+        // time = formatTime(time);
+        // console.log(time);  // 2019年05月30日 12:00:00
+
+
+
+        /**
+         * 封装一套公共的时间字符串格式化处理的方式 
+         */ 
+        // String.prototype.formatTime = function formatTime (template) {
+        //     // 初始化模板
+        //     typeof template === "undefined" ? template = "{0}年{1}月{2}日 {3}:{4}:{5}" : null;
+
+        //     // this: 我们要处理的字符串
+        //     // 获取日期字符串中的数字信息
+        //     let matchAry = this.match(/\d+/g);
+
+        //     // 模板和数据的渲染（引擎机制）
+        //     template = template.replace(/\{(\d+)\}/g, (x, y) => {
+        //         let val = matchAry[y] || '00';
+        //         val.length < 2 ? val = "0" + val : null;
+        //         return val;
+        //     });
+        //     return template;
+        // }
+        
+        // let time = "2019-5-30 12:0:0";  
+        // console.log(time.formatTime());
+        // console.log(time.formatTime("{1}-{2} {3}:{4}"));
+    </script>
+</body>
+</html>
